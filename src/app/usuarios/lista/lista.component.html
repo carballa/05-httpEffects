@@ -1,0 +1,32 @@
+<div *ngIf="loading" class="alert alert-success text-center" role="alert">
+    <h4 class="alert-heading">Cargando</h4>
+    <p>
+        <i class="fa fa-sync fa-spin fa-2x" aria-hidden="true"></i>
+    </p>
+    <p class="mb-0"></p>
+</div>
+<div *ngIf="!loading && error != null" class="alert alert-danger text-center" role="alert">
+    <h4 class="alert-heading">Error</h4>
+    <pre>
+        {{error | json}}
+    </pre>
+    <p class="mb-0"></p>
+</div>
+
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let usuario of usuarios">
+        <div class="card h-100">
+            <img src={{usuario.avatar}} class="card-img-top ">
+            <div class="card-body ">
+                <h5 class="card-title">Nombres: {{ usuario.firstName }} {{ usuario.lastName }}</h5>
+                <p class="card-text ">{{usuario.email}}</p>
+            </div>
+            <p class="card-text"><span class="text-muted">Id: {{usuario.id}}</span></p>
+
+            <div class="card-footer ">
+                <small class="text-muted ">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>
+</div>
